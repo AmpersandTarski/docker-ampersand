@@ -13,10 +13,10 @@ RUN cd ~ \
   && cd ~/install-tl-* \
   && ./install-tl --profile=/root/texlive.profile
 
-# clone git repositories with their respective branches
-RUN mkdir ~/git && cd ~/git \
- && git clone --branch master https://github.com/AmpersandTarski/Ampersand-models \
- && cd ~/git && git clone --branch development https://github.com/AmpersandTarski/Ampersand
+# clone git ampersand compiler repository
+RUN mkdir ~/git \
+ && cd ~/git \
+ && git clone --branch development https://github.com/AmpersandTarski/Ampersand
 
 # build the compiler
 RUN cd ~/git/Ampersand \
@@ -27,6 +27,4 @@ RUN cd ~/git/Ampersand \
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
  && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
  && php -r "unlink('composer-setup.php');"
-
-# build RAP3 application
-
+ 

@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  rap3:
+    build: ./RAP3
+    ports:
+      - "80:80"
+    links:
+      - db
+
+  rap3db:
+    build: ./rap3db
+    volumes:
+     - /var/lib/mysql
+
+  phptools:
+    image: phpmyadmin/phpmyadmin
+    ports:
+       - "8080:80"
+    links:
+      - db
