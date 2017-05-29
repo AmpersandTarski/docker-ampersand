@@ -8,10 +8,9 @@ services:
     links:
       - db
 
-  rap3db:
-    build: ./rap3db
-    volumes:
-     - /var/lib/mysql
+  db:
+    image: mariadb:10.1
+    env_file: db-settings.env
 
   phptools:
     image: phpmyadmin/phpmyadmin
@@ -19,3 +18,4 @@ services:
        - "8080:80"
     links:
       - db
+

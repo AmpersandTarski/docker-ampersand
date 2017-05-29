@@ -1,6 +1,6 @@
 FROM php:7-apache
 
-ENV PATH="/usr/local/texlive/2016/bin/x86_64-linux:/root/.local/bin:${PATH}"
+ENV PATH="/usr/local/texlive/2016/bin/x86_64-linux:${PATH}"
 RUN apt-get update \
  && apt-get install -y git graphviz wget \
  && curl -sSL https://get.haskellstack.org/ | /bin/sh
@@ -21,7 +21,7 @@ RUN mkdir ~/git \
 # build the compiler
 RUN cd ~/git/Ampersand \
  && stack setup \
- && stack install
+ && stack install --local-bin-path /usr/local/bin
 
 # install composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
