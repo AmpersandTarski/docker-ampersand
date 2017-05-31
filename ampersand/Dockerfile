@@ -1,17 +1,22 @@
 FROM php:7-apache
 
-ENV PATH="/usr/local/texlive/2016/bin/x86_64-linux:${PATH}"
+ENV PATH /texlive/bin/x86_64-linux:$PATH
 RUN apt-get update \
- && apt-get install -y git graphviz wget \
- && curl -sSL https://get.haskellstack.org/ | /bin/sh
+ && apt-get install -y --no-install-recommends git graphviz wget xorriso \
+ && curl -sSL https://get.haskellstack.org/ | /bin/sh \
+ && rm -rf /var/lib/apt/lists/*
 
-# install texlive
-ADD  texlive.profile /root
+# install texlive from iso
+ENV TL_VERSION 2016-20160523
+ADD texlive.profile /tmp
 RUN cd ~ \
-  && curl -SL http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz \
-  | tar -xvz \
-  && cd ~/install-tl-* \
-  && ./install-tl --profile=/root/texlive.profile
+ && wget -q   http://mirrors.ctan.org/systems/texlive/Images/texlive$TL_VERSION.iso \
+ && wget -qO- http://mirrors.ctan.org/systems/texlive/Images/texlive$TL_VERSION.iso.sha512 | sha512sum -c \
+ && osirrox -report_about NOTE -indev texlive$TL_VERSION.iso -extract / /usr/src/texlive \
+ && rm texlive$TL_VERSION.iso \
+ && /usr/src/texlive/install-tl -profile /tmp/texlive.profile \
+ && rm -rf /usr/src/texlive \
+ && rm /tmp/texlive.profile
 
 # clone git ampersand compiler repository
 RUN mkdir ~/git \
