@@ -7,7 +7,7 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/*
 
 # install texlive from iso
-ENV TL_VERSION 2016-20160523
+ENV TL_VERSION 2017-20170524
 ADD texlive.profile /tmp
 RUN cd ~ \
  && wget -q   http://mirrors.ctan.org/systems/texlive/Images/texlive$TL_VERSION.iso \
