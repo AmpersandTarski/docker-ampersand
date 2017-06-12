@@ -6,7 +6,8 @@ RUN mkdir -p ~/git \
  && git clone --branch master https://github.com/AmpersandTarski/Ampersand-models \
  && ampersand --meta-tables --add-semantic-metamodel -p/var/www/html/RAP3 ~/git/Ampersand-models/RAP3/RAP3.adl --verbose \
  && mkdir -p /var/www/html/RAP3/log \
- && chown -R www-data:www-data /var/www/html/RAP3
+ && chown -R www-data:www-data /var/www/html/RAP3 \
+ && composer install
 
 # update (db) configuration
 ADD localSettings.php /var/www/html/RAP3/
