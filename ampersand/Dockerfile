@@ -29,6 +29,7 @@ RUN cd ~/git/Ampersand \
  && stack install --local-bin-path /usr/local/bin
 
 # install composer
+ENV COMPOSER_HOME=/usr/local/bin/
 RUN php  -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
  && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
  && php -r "unlink('composer-setup.php');"
@@ -36,5 +37,3 @@ RUN php  -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 # install mysqli for php & enable mod_rewrite for apache
 RUN docker-php-ext-install mysqli \
  && a2enmod rewrite
-
-ENV COMPOSER_HOME=/usr/local/bin/
