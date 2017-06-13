@@ -36,3 +36,5 @@ RUN php  -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 # install mysqli for php & enable mod_rewrite for apache
 RUN docker-php-ext-install mysqli \
  && a2enmod rewrite
+
+ENV COMPOSER_HOME=/usr/local/bin/
