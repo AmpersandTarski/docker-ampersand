@@ -1,5 +1,7 @@
 FROM ampersand:latest
 
+ENV COMPOSER_HOME=/usr/local/bin/
+
 # build RAP3 application by cloning the models repository
 RUN mkdir -p ~/git \
  && cd ~/git \
