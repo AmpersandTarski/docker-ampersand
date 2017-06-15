@@ -9,8 +9,7 @@ services:
       - db
 
   db:
-    image: mariadb:10.1
-    env_file: db-settings.env
+    build: ./RAP3DB
 
   phptools:
     image: phpmyadmin/phpmyadmin

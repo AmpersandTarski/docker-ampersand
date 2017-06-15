@@ -1,14 +1,11 @@
 FROM ampersand:latest
 
-ENV COMPOSER_HOME=/usr/local/bin/
-
 # build RAP3 application by cloning the models repository
 RUN mkdir -p ~/git \
  && cd ~/git \
- && git clone --branch master https://github.com/AmpersandTarski/Ampersand-models \
+ && git clone --depth=1 --branch master https://github.com/AmpersandTarski/Ampersand-models \
  && ampersand --meta-tables --add-semantic-metamodel -p/var/www/html/RAP3 ~/git/Ampersand-models/RAP3/RAP3.adl --verbose \
  && mkdir -p /var/www/html/RAP3/log \
+ && sed -i "s|.*Config::set.*{SQLHOST}.*|Config::set('dbHost', 'mysqlDatabase', 'db');|" /var/www/html/RAP3/localSettings.php \
+ && sed -i "s|.*Config::set( *'ampersand'.*|Config::set('ampersand', 'RAP3', '/usr/local/bin/ampersand');|" /var/www/html/RAP3/localSettings.php \
  && chown -R www-data:www-data /var/www/html/RAP3
-
-# update (db) configuration
-ADD localSettings.php /var/www/html/RAP3/
