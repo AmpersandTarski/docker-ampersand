@@ -8,4 +8,7 @@ RUN mkdir -p ~/git \
  && mkdir -p /var/www/html/RAP3/log \
  && sed -i "s|.*Config::set.*{SQLHOST}.*|Config::set('dbHost', 'mysqlDatabase', 'db');|" /var/www/html/RAP3/localSettings.php \
  && sed -i "s|.*Config::set( *'ampersand'.*|Config::set('ampersand', 'RAP3', '/usr/local/bin/ampersand');|" /var/www/html/RAP3/localSettings.php \
+ && curl http://localhost/RAP3/#/admin/installer?defaultPop=true \
  && chown -R www-data:www-data /var/www/html/RAP3
+
+VOLUME /var/www/html/RAP3/scripts

@@ -7,9 +7,13 @@ services:
       - "80:80"
     links:
       - db
+    volumes:
+      - ~/scripts:/var/html/www/RAP3/scripts
 
   db:
     build: ./RAP3DB
+    volumes:
+      - ~/database:/var/lib/mysql
 
   phptools:
     image: phpmyadmin/phpmyadmin
