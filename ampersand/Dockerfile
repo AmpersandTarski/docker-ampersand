@@ -19,7 +19,7 @@ ADD texlive.profile /tmp
 RUN cd ~ \
  && curl http://ctan.mirrors.hoobly.com/systems/texlive/tlnet/install-tl-unx.tar.gz | tar -vxz \
  && cd install-tl* \
- && ./install-tl -profile /tmp/texlive.profile \
+ && ./install-tl -profile /tmp/texlive.profile -repository http://ftp.uni-erlangen.de/mirrors/CTAN/systems/texlive/tlnet/ \
  && rm -rf install-tl* \
  && rm /tmp/texlive.profile
 
@@ -31,5 +31,3 @@ RUN mkdir ~/git \
  && stack setup \
  && stack install --local-bin-path /usr/local/bin \
  && rm -rf ~/.stack ~/git/Ampersand/.stack-work
-
-https://github.com/AmpersandTarski/docker-ampersand.git
