@@ -8,12 +8,12 @@ services:
     links:
       - db
     volumes:
-      - ~/scripts:/var/html/www/RAP3/scripts
-
+      - /home/ampersandadmin/scripts:/var/html/www/RAP3/scripts
+ 
   db:
     build: ./RAP3DB
     volumes:
-      - ~/database:/var/lib/mysql
+      - /home/ampersandadmin/database:/var/lib/mysql
 
   phptools:
     image: phpmyadmin/phpmyadmin
@@ -21,4 +21,3 @@ services:
        - "8080:80"
     links:
       - db
-

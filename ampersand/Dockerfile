@@ -13,7 +13,7 @@ RUN apt-get update \
 
 ENV COMPOSER_HOME /usr/local/bin/
 
-# install texlive from iso
+# install texlive from network
 ENV PATH /texlive/bin/x86_64-linux:$PATH
 ADD texlive.profile /tmp
 RUN cd ~ \
@@ -29,4 +29,7 @@ RUN mkdir ~/git \
  && git clone --depth=1 --branch development https://github.com/AmpersandTarski/Ampersand \
  && cd ~/git/Ampersand \
  && stack setup \
- && stack install --local-bin-path /usr/local/bin
+ && stack install --local-bin-path /usr/local/bin \
+ && rm -rf ~/.stack ~/git/Ampersand/.stack-work
+
+https://github.com/AmpersandTarski/docker-ampersand.git
