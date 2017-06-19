@@ -1,7 +1,5 @@
 FROM ampersand:latest
 
-VOLUME /var/www/html/RAP3/scripts
-
 # build RAP3 application by cloning the models repository
 RUN mkdir -p ~/git \
  && cd ~/git \

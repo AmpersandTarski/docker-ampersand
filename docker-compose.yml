@@ -2,18 +2,16 @@ version: '2'
 
 services:
   rap3:
+    restart: always
     build: ./RAP3
     ports:
       - "80:80"
     links:
       - db
-    volumes:
-      - /home/ampersandadmin/scripts:/var/html/www/RAP3/scripts
  
   db:
+    restart: always
     build: ./RAP3DB
-    volumes:
-      - /home/ampersandadmin/database:/var/lib/mysql
 
   phptools:
     image: phpmyadmin/phpmyadmin
