@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  cvm:
+    restart: always
+    build: ./CvM
+    ports:
+      - "8880:80"
+    links:
+      - db
+ 
+  db:
+    restart: always
+    build: ./DB
+
+  phptools:
+    image: phpmyadmin/phpmyadmin
+    ports:
+       - "8888:80"
+    links:
+      - db
