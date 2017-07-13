@@ -5,7 +5,8 @@ RUN apt-get update \
  && apt-get install -y --no-install-recommends git graphviz wget vim less \
  && curl -sSL https://get.haskellstack.org/ | /bin/sh \
  && docker-php-ext-install mysqli \
- && docker-php-ext-install zip \       # enable ZipArchive for importing .xlsx files on runtime
+# enable ZipArchive for importing .xlsx files on runtime
+ && docker-php-ext-install zip \
  && a2enmod rewrite \
  && rm -rf /var/lib/apt/lists/* \
  && php  -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
