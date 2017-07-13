@@ -14,6 +14,6 @@ ampersand --meta-tables --add-semantic-metamodel --verbose -pRAPgen RAP3/RAP3.ad
 cp RAP3/include/localSettingsProduction.php RAPgen/localSettings.php
 cp -r /var/www/html/RAP3/log RAPgen
 cp -r /var/www/html/RAP3/scripts RAPgen
-chown -R www-data:www-data RAPgen
 mv /var/www/html/RAP3 /var/www/html/RAPprev
 mv RAPgen /var/www/html/RAP3
+chown -R www-data:www-data RAP3
