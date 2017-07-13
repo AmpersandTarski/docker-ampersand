@@ -6,5 +6,6 @@
 . common.sh
 
 docker cp ./releaseRAPwithinContainer.sh ${rap3container}:/tmp/releaseRAPwithinContainer.sh
+docker-compose exec ${rap3service} sh -c "chmod +x /tmp/releaseRAPwithinContainer.sh"
 docker-compose exec ${rap3service} sh -c "/tmp/releaseRAPwithinContainer.sh"
 docker-compose exec ${rap3service} sh -c "rm /tmp/releaseRAPwithinContainer.sh"
