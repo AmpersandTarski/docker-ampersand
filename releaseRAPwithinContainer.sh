@@ -12,7 +12,6 @@ git pull
 mkdir RAPgen
 ampersand --meta-tables --add-semantic-metamodel --verbose -pRAPgen RAP3/RAP3.adl
 cp RAP3/include/localSettingsProduction.php RAPgen/localSettings.php
-sed -i "s|.*Config::set.*{SQLHOST}.*|Config::set('dbHost', 'mysqlDatabase', 'db');|" RAPgen/localSettings.php
 cp -r /var/www/html/RAP3/log RAPgen
 cp -r /var/www/html/RAP3/scripts RAPgen
 chown -R www-data:www-data RAPgen
