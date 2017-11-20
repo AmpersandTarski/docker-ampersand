@@ -30,9 +30,9 @@ RUN mkdir ~/git \
  && cd ~/git \
  && git clone --depth=1 --branch feature/secondAttemptQuoting https://github.com/AmpersandTarski/Ampersand \
  && cd ~/git/Ampersand \
- && sed -i "s|.*Config::set.*dbHost.*|Config::set('dbHost', 'mysqlDatabase', 'db');|" ~/git/Ampersand/static/zwolle/localSettings.php \
- && sed -i "s|.*Config::set.*dbUser.*|Config::set('dbUser', 'mysqlDatabase', 'ampersand');|" ~/git/Ampersand/static/zwolle/localSettings.php \
- && sed -i "s|.*Config::set.*dbPassword.*|Config::set('dbPassword', 'mysqlDatabase', 'ampersand');|" ~/git/Ampersand/static/zwolle/localSettings.php \
+# && sed -i "s|.*Config::set.*dbHost.*|Config::set('dbHost', 'mysqlDatabase', 'db');|" ~/git/Ampersand/static/zwolle/localSettings.php \
+# && sed -i "s|.*Config::set.*dbUser.*|Config::set('dbUser', 'mysqlDatabase', 'ampersand');|" ~/git/Ampersand/static/zwolle/localSettings.php \
+# && sed -i "s|.*Config::set.*dbPassword.*|Config::set('dbPassword', 'mysqlDatabase', 'ampersand');|" ~/git/Ampersand/static/zwolle/localSettings.php \
  && stack setup \
  && stack install --local-bin-path /usr/local/bin \
  && rm -rf ~/.stack ~/git/Ampersand/.stack-work
