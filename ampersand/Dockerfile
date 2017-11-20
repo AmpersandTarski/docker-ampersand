@@ -28,7 +28,7 @@ RUN cd ~ \
 # clone git ampersand compiler repository
 RUN mkdir ~/git \
  && cd ~/git \
- && git clone --depth=1 --branch development https://github.com/AmpersandTarski/Ampersand \
+ && git clone --depth=1 --branch feature/secondAttemptQuoting https://github.com/AmpersandTarski/Ampersand \
  && cd ~/git/Ampersand \
  && sed -i "s|.*Config::set.*dbHost.*|Config::set('dbHost', 'mysqlDatabase', 'db');|" ~/git/Ampersand/static/zwolle/localSettings.php \
  && sed -i "s|.*Config::set.*dbUser.*|Config::set('dbUser', 'mysqlDatabase', 'ampersand');|" ~/git/Ampersand/static/zwolle/localSettings.php \
