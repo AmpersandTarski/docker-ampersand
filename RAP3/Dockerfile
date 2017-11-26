@@ -7,7 +7,8 @@ RUN mkdir -p ~/git \
 # build RAP3 application
  && ampersand --atlas-without-expressions --meta-tables --add-semantic-metamodel -p/var/www/html/RAP3 ~/git/Ampersand-models/RAP3/RAP3.adl --verbose \
  && mkdir -p /var/www/html/RAP3/log \
- && chown -R www-data:www-data /var/www/html/RAP3 \
-# build Hawaii demo, which is being used in the Ampersand-tutorial
- && ampersand -p/var/www/html/Hawaii ~/git/Ampersand-models/Hawaii/Hawaii.adl --verbose \
- && chown -R www-data:www-data /var/www/html/Hawaii
+ && chown -R www-data:www-data /var/www/html/RAP3
+
+# build Enrollment demo, which is being used in the Ampersand-tutorial
+RUN ampersand -p/var/www/html/Enroll ~/git/Ampersand-models/Hawaii/Enroll.adl --verbose \
+ && chown -R www-data:www-data /var/www/html/Enroll
