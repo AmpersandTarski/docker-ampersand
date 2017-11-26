@@ -10,5 +10,5 @@ RUN mkdir -p ~/git \
  && chown -R www-data:www-data /var/www/html/RAP3
 
 # build Enrollment demo, which is being used in the Ampersand-tutorial
-RUN ampersand -p/var/www/html/Enroll ~/git/Ampersand-models/Hawaii/Enroll.adl --verbose \
+RUN ampersand -p/var/www/html/Enroll ~/git/Ampersand-models/Enroll/Enrollment.adl --verbose \
  && chown -R www-data:www-data /var/www/html/Enroll
