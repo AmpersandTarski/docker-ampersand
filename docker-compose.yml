@@ -1,19 +1,21 @@
-version: '2'
+version: '3'
 
 services:
   rap3:
     restart: always
-    build: ./RAP3
+    image: ampersandtarski/ampersand-rap
     ports:
       - "80:80"
     links:
       - db
-    environment:
-    - AMPERSAND_DB_HOST="db"
+    volumes:
+      - ./volumes/log:/var/www/html/log
  
   db:
     restart: always
-    build: ./RAP3DB
+    image: ampersandtarski/ampersand-prototype-db
+    volumes:
+      - ./volumes/mysql:/var/lib/mysql
 
   phptools:
     image: phpmyadmin/phpmyadmin
