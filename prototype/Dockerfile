@@ -6,6 +6,7 @@ ENV AMP_DEPS \
              curl \
              git \
              less \
+             netbase \
              vim \
              wget \
              zlib1g-dev
