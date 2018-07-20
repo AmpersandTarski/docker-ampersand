@@ -7,6 +7,7 @@ ENV AMP_DEPS \
              git \
              graphviz \
              less \
+             netbase \
              vim \
              wget \
              zlib1g-dev
