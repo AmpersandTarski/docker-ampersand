@@ -1,9 +1,9 @@
 For now just notes:
 
-- how to get up and running
-  run *./build-basecontainers.sh* to build the initial ampersand container that serves as a base for the RAP3 application
-  this base images holds all required packages and the (at that moment) latest version of the ampersand compiler
-  the workflow around this container can/should be improved since now the easiest way to rebuild is to remove the container (*docker rmi ampersand:latest*)
+- How to get up and running
+  Run *./build.sh* to build the initial ampersand container that serves as a base for the RAP3 application (or any other Ampersand application).
+  This base image holds all required packages and the (at that moment) latest version of the ampersand compiler.
+  The workflow around this container can/should be improved since now the easiest way to rebuild is to remove the container (*docker rmi ampersand:latest*)
 
 - run the ampersand container interactively to test the compiler etc..:
   *docker run -ti --rm ampersand:latest /bin/bash*
