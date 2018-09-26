@@ -5,12 +5,13 @@ FROM php:7-apache
 ENV AMP_DEPS \
              curl \
              git \
-             graphviz \
              less \
              netbase \
              vim \
              wget \
-             zlib1g-dev
+             zlib1g-dev \
+             graphviz \
+             ghostscript
 
 # install required php packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
