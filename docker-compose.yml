@@ -7,14 +7,16 @@ networks:
   db:
 
 services:
-  prototype-web:
-    restart: always
-    image: ampersand-prototype-web
-    volumes:
-      - ${MY_HTDOCS_DIR}:/var/www/html
-    container_name: prototype-web
+  prototype:
+    container_name: prototype
     build:
-      context: prototype-web
+      context: .
+      args:
+        - AMPERSAND_SCRIPT=ProjectAdministration.adl
+        - AMPERSAND_DB_HOST=prototype-db
+    volumes:
+      - ./:/src
+    restart: always
     depends_on:
       - prototype-db
     ports:
