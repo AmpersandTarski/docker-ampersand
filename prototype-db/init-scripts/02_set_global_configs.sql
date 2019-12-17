@@ -1,1 +1,0 @@
-SET GLOBAL sql_mode = 'ANSI,TRADITIONAL';
